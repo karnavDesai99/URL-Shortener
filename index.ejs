@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    <form action="/shortUrls" method="POST">
+        <label for="longURL">URL</label>
+        <input type="url" name="longURL" id="longURL">
+        <button type="submit">Shorten</button>
+    </form>
+    <table>
+        <thead>
+            <th>Long URL</th>
+            <th>Short URL</th>
+        </thead>
+        <tbody>
+            <% shortUrls.forEach(ShortUrl=>{%>
+                <tr>
+                    <td><a href="<%=ShortUrl.long %>"><%=ShortUrl.long %></a></td>
+                    <td><a href="<%=ShortUrl.short %>"><%=ShortUrl.short %></a></td> 
+               </tr>
+            <%}) %>
+        </tbody>
+    </table>
+</body>
+</html>
